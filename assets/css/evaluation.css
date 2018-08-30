@@ -1,0 +1,171 @@
+.evaluate-action {
+    text-align: center;
+}
+
+.tr-evaluate:hover {
+    cursor: pointer;
+    background-color: #5e7d90 !important;
+    color: white !important;
+}
+
+.tr-evaluate-selected {
+    background-color: #5e7d90 !important;
+    color: white !important;
+}
+
+.btn-evaluate {
+    color: green;
+}
+
+.btn-evaluate:hover {
+    color: white;
+}
+
+.evaluation-wizard-container {
+    background-color: white;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    min-height: 500px;
+}
+
+.evaluation-affix {
+    background-color: #3a3a3a !important;
+}
+
+.eval-title {
+    color: #3C4858;
+}
+
+.eval-sub-title {
+    color: #3C4858;font-size: 1.25em;
+}
+
+.width-14 {
+    width: 14.28%;
+}
+
+.width-13 {
+    width: 13.24%;
+}
+
+.eval-nav {
+    background-color: #5e7d90 !important;
+}
+
+.eval-a {
+    background-color: #5e7d90 !important;
+    color: white !important;
+    border-radius: 0px !important;
+}
+
+.nav-eval:hover {
+    background-color: #5e7d90 !important
+}
+
+.eval-a:hover {
+    background-color: #5e7d90 !important;
+    color: white !important;
+    border-radius: 0px !important;
+}
+
+.nav-active {
+    display: none;
+    background-color: #f44336;
+    width: 300px;
+    height: 3.5em;
+    position: absolute;
+    z-index: 999;
+    margin-top: -4px;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 15px;
+    color: white;
+    margin-left: -2em;
+    border-radius: 3px
+}
+
+.eval-content {
+    min-height: 300px;
+}
+
+.btn-eval {
+    margin-left: 30px;
+    margin-bottom: 20px;
+    width: 170px;
+}
+
+.margin-right-30 {
+    margin-right: 30px;
+}
+
+.eval-emp {
+    color: #5e7d90 !important;
+}
+
+.btn-eval-finish {
+    display: none;
+}
+
+.eval-button-container {
+    margin-top: 15px;
+}
+
+.text-brown {
+    color: #803030;
+}
+
+.text-grey {
+    color: #655e5e;
+}
+
+.text-purple {
+    color: #6f226f;
+}
+
+.text-flesh {
+    color: #bd9090;
+}
+
+.text-pink {
+    color: #de687d;
+}
+
+.btn-return-evaluation {
+    font-size: 48px;
+    margin-top: 2px;
+    color: #d8726b;
+    cursor: pointer;
+    margin-left: 26px;
+}
+
+.user-profile, .page-container {
+    min-height: 600px !important;
+}
+
+.tbl-eval-row:hover {
+    background-color: #e8e8e8;
+    cursor: pointer;
+}
+
+.btn-finish-eval {
+    background-color: #5bc0de !important;
+    color: white !important;
+}
+
+.evaluation-filter {
+    margin-top: 3px;
+}
+
+.filter-container {
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+}
+
+.vertical-middle {
+    vertical-align: middle !important;
+}
+
+.icon-evaluation {
+    padding-left: 0px !important;
+}
