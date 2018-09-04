@@ -119,7 +119,7 @@
     <?php if(!empty($page_data)) :?>
         <?php if(!empty($page_data["js"])) :?>
             <?php foreach($page_data["js"] as $js_key => $js_file) :?>
-                    <script src="<?php echo base_url();?>../assets/js/<?php echo $js_file;?>"></script>
+    <script src="<?php echo base_url();?>../assets/js/<?php echo $js_file;?>"></script>
             <?php endforeach;?>
         <?php endif;?>
     <?php endif;?>
@@ -127,6 +127,7 @@
     <script src="<?php echo base_url();?>../assets/js/style-switcher.js"></script>
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,8 @@
+.update-employee-profile {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#modal-update-employee-profile > .modal-dialog {
+    width: 60%;
+}

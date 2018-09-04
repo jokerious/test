@@ -188,13 +188,17 @@
                     </a>
 
                     <div class="media-body">
-                        <h5 class="media-heading"><?php echo ucfirst($_SESSION["first_name"]);?></h5>
+                        <h5 class="media-heading">Hi <?php echo ucfirst($_SESSION["first_name"]);?>!</h5>
                         <ul class="list-unstyled user-info">
                             <!--<li><a href=""><?php echo ucfirst($_SESSION["type"]);?></a></li>-->
+                            <!--
                             <li>Last Access :
                                 <br>
                                 <small><i class="fa fa-calendar"></i>&nbsp;16 Mar 16:32</small>
                             </li>
+                            -->
+                            <br/>
+                            <br/>
                         </ul>
                     </div>
                 </div>
@@ -203,7 +207,7 @@
 
             <ul id="menu" class="bg-blue dker">
                 <li class="nav-header">Menu</li>
-                <li class="nav-divider"></li>
+                <!--<li class="nav-divider"></li>-->
 
                 <?php if(checkPermission('dashboard')) :?>
                 <li class="<?php echo tabNavigation('dashboard', $page);?>">

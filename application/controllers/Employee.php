@@ -109,6 +109,7 @@ class Employee extends MY_Controller {
         $data    = array();
 
         if(!empty($user_id)) {
+            $data["employee_id"]      = $user_id;
             $data["employee_details"] = $this->employee_model->getEmployeeDetails($user_id);
             $data["employment_info"]  = $this->employee_model->getEmploymentInfo($user_id);
             $departments              = $this->employee_model->getDepartmentList();
@@ -120,5 +121,17 @@ class Employee extends MY_Controller {
         } else {
             redirect(base_url() . 'dashboard', 'refresh');
         }
+    }
+
+    public function getEmployeeInfo() {
+        $result      = array();
+        $employee_id = (!empty($_POST["employee_id"])) ? $_POST["employee_id"] : 0;
+
+        if(!empty($employee_id)) {
+            $employee_info = $this->employee_model->getEmployeeDetails($employee_id);
+            $result        = $this->employee_model->prepareUpdateData($employee_info);
+        }
+
+        echo json_encode($result);
     }
 }

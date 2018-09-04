@@ -1,6 +1,8 @@
 $(document).ready(function() {
     $('[data-toggle="tm-tooltip"]').tooltip();
 
+    vm = initVue();
+
     $(".date-picker").datepicker({
         todayHighlight: true,
         autoclose: true,
@@ -109,5 +111,78 @@ $(document).ready(function() {
         $("#employee-id").val(emp_id);
 
         $("#frm-emp-profile").submit();
+    });
+
+    $("body").on("click", ".update-employee-profile ", function() {
+        var base_url = $(".base-url").val();
+
+        $.ajax({
+            url  : base_url + "employee/getEmployeeInfo",
+            type : 'POST',
+            data :{
+                'tm_hr_token' : $("#frm-update-employee-profile").find("input[name='tm_hr_token']").val(),
+                'employee_id' : $("#employee-id").val()
+            },
+            success: function(result) {
+                data = JSON.parse(result);
+                
+                if(data.first_name.length > 0) {
+                    vm.first_name          = data.first_name;
+                    vm.middle_name         = data.middle_name;
+                    vm.last_name           = data.last_name;
+                    vm.gender              = data.gender;
+                    vm.birth_date          = data.birth_date;
+                    vm.address             = data.address;
+                    vm.phone_number        = data.phone_number;
+                    vm.email_address       = data.email_address;
+                    vm.bank_account_number = data.bank_account_number;
+                    vm.sss_number          = data.sss_number;
+                    vm.hdmf_number         = data.hdmf_number;
+                    vm.philhealth_number   = data.philhealth_number;
+
+                    $("#modal-update-employee-profile").modal("show");
+                }
+            }
+        });
+    });
+
+    function initVue() {
+        var vm = new Vue({
+            el: '#frm-update-employee-profile',
+            data: {
+                first_name         : "",
+                middle_name        : "",
+                last_name          : "",
+                gender             : "",
+                birth_date         : "",
+                address            : "",
+                phone_number       : "",
+                email_address      : "",
+                bank_account_number: "",
+                sss_number         : "",
+                hdmf_number        : "",
+                philhealth_number  : ""
+            }
+        });
+
+        return vm;
+    }
+
+    $("body").on("click", ".btn-employee-update", function() {
+        data                        = {};
+        data["first_name"]          = vm.first_name;
+        data["middle_name"]         = vm.middle_name;
+        data["last_name"]           = vm.last_name;
+        data["gender"]              = vm.gender;
+        data["birth_date"]          = vm.birth_date;
+        data["address"]             = vm.address;
+        data["phone_number"]        = vm.phone_number;
+        data["email_address"]       = vm.email_address;
+        data["bank_account_number"] = vm.bank_account_number;
+        data["sss_number"]          = vm.sss_number;
+        data["hdmf_number"]         = vm.hdmf_number;
+        data["philhealth_number"]   = vm.philhealth_number;
+
+        console.log(data); return false;
     });
 });

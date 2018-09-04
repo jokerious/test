@@ -257,7 +257,6 @@
                                         </div>
                                     </div>
 
-
                                     <div class="form-group">
                                         <label class="control-label col-lg-4">Department</label>
                                         <div class="col-lg-4">

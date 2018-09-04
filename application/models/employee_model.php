@@ -279,7 +279,7 @@ class employee_model extends CI_Model {
                         date_added
                     FROM employment_information
                     WHERE employee_id = {$user_id}
-                    GROUP BY field_name
+                    GROUP BY employee_id, field_name
                     ORDER BY empinfo_id DESC
                    ";
             $exe = $this->db->query($sql)->result_array();
@@ -290,6 +290,25 @@ class employee_model extends CI_Model {
                 }
             }
         }
+
+        return $result;
+    }
+
+    public function prepareUpdateData($employee_info) {
+        $result = array();
+
+        $result["last_name"]           = ucwords($employee_info["last_name"]);
+        $result["first_name"]          = ucwords($employee_info["first_name"]);
+        $result["middle_name"]         = ucwords($employee_info["middle_name"]);
+        $result["birth_date"]          = (!empty($employee_info["birth_date"]) && $employee_info["birth_date"] <> "0000-00-00 00:00:00" && $employee_info["birth_date"] <> null) ?  date("m/d/Y", strtotime($employee_info["birth_date"])) : "";
+        $result["gender"]              = $employee_info["gender"];
+        $result["address"]             = ucwords($employee_info["address"]);
+        $result["phone_number"]        = $employee_info["phone_number"];
+        $result["email_address"]       = $employee_info["email_address"];
+        $result["bank_account_number"] = $employee_info["bank_account_number"];
+        $result["sss_number"]          = $employee_info["sss_number"];
+        $result["hdmf_number"]         = $employee_info["hdmf_number"];
+        $result["philhealth_number"]   = $employee_info["philhealth_number"];
 
         return $result;
     }
