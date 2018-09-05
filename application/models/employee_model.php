@@ -279,7 +279,7 @@ class employee_model extends CI_Model {
                         date_added
                     FROM employment_information
                     WHERE employee_id = {$user_id}
-                    GROUP BY employee_id, field_name
+                    GROUP BY employee_id, field_name, empinfo_id
                     ORDER BY empinfo_id DESC
                    ";
             $exe = $this->db->query($sql)->result_array();
