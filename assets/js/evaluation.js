@@ -222,9 +222,11 @@ $(document).ready(function() {
     $("body").on("click", ".btn-eval-finish", function(event) {
         event.preventDefault();
 
-        var evaluation    = [];
-        var error         = false;
-        var $this         = $(this);
+        var evaluation      = [];
+        var comments        = [];
+        var recommendations = [];
+        var error           = false;
+        var $this           = $(this);
 
         $("#frm-evaluation").find(".eval-page-container").each(function(key, container) {
             var radio_checked = $(container).find("input:radio:checked").val();
@@ -242,17 +244,27 @@ $(document).ready(function() {
 
             if(!error) {
                 evaluation.push(radio_checked);
+
+                $(container).find("textarea").each(function(textarea, textarea_value){
+                    if($(textarea_value).data("type") == "comment") {
+                        comments.push({[$(textarea_value).data("attr-id")]  : $(textarea_value).val()});
+                    }
+
+                    if($(textarea_value).data("type") == "recommendation") {
+                        recommendations.push({[$(textarea_value).data("attr-id")]  : $(textarea_value).val()});
+                    }
+                });
             }
         });
 
         if(evaluation.length > 0 && !error) {
-            $this.button('loading');
+            //$this.button('loading');
 
-            submitEvaluation(evaluation, $this);
+            submitEvaluation(evaluation, $this, comments, recommendations);
         }
     });
 
-    function submitEvaluation(evaluation, $this) {
+    function submitEvaluation(evaluation, $this, comments, recommendations) {
         var url           = $(".base-url").val();
         var evaluation_id = $(".evaluation-id").val();
         var token         = $("#frm-evaluation").find("input[name='tm_hr_token']").val()
@@ -262,9 +274,11 @@ $(document).ready(function() {
                 url  : url + 'evaluation/processEvaluation',
                 type : 'POST',
                 data :{
-                    'tm_hr_token'   : token,
-                    'evaluation'    : evaluation,
-                    'evaluation_id' : evaluation_id
+                    'tm_hr_token'     : token,
+                    'evaluation'      : evaluation,
+                    'evaluation_id'   : evaluation_id,
+                    'comments'        : comments,
+                    'recommendations' : recommendations
                 },
                 success: function(result) {
                     data = JSON.parse(result);
@@ -309,6 +323,8 @@ $(document).ready(function() {
                     $.each(data, function(key, value) {
                         $(".rating-" + value.attr_id).html(value.rating);
                         $(".rating-num-" + value.attr_id).html(value.rating_value);
+                        $(".comments-" + value.attr_id).html(value.evaluator_comments);
+                        $(".recommendations-" + value.attr_id).html(value.evaluator_recommendations);
 
                         total = total + parseInt(value.rating_value);
                     });

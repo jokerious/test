@@ -141,13 +141,17 @@ class Evaluation extends MY_Controller {
         $result             = array();
         $result["error"]    = false;
         $result["message"]  = "Evaluation Successfully Submitted.";
+        $comments           = (!empty($_POST["comments"])) ? $_POST["comments"] : array();
+        $recommendations    = (!empty($_POST["recommendations"])) ? $_POST["recommendations"] : array();
         $emp_evaluation     = (!empty($_POST["evaluation"])) ? $_POST["evaluation"] : array();
         $evaluation_list_id = (!empty($_POST["evaluation_id"])) ? $_POST["evaluation_id"] : 0;
         $insert_evaluation  = 0;
 
         if(!empty($emp_evaluation) && !empty($evaluation_list_id)) {
+            $comments           = $this->evaluation_model->prepareCommentRecommendations($comments);
+            $recommendations    = $this->evaluation_model->prepareCommentRecommendations($recommendations);
             $evaluation_result  = $this->evaluation_model->getEvaluationResult($emp_evaluation);
-            $evaluation_result  = $this->evaluation_model->prepareEvaluationResult($evaluation_result, $evaluation_list_id);
+            $evaluation_result  = $this->evaluation_model->prepareEvaluationResult($evaluation_result, $evaluation_list_id, $comments, $recommendations);
             $remove_evaluation  = $this->evaluation_model->removePreviousEvaluationResult($evaluation_list_id); //remove (if exist) evaluation result
             $insert_evaluation  = $this->evaluation_model->inserEvaluationResult($evaluation_result);
             $update_eval_status = $this->evaluation_model->evaluationUpdateStatus($evaluation_list_id, $insert_evaluation);

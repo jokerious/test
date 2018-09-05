@@ -179,26 +179,41 @@
                         <div class="row eval-page-container">
                             <div class="col-md-12">
                                 <?php if(!empty($evaluation_attribute[1])) :?>
-                                    <h4><b class="text-brown"><?php echo $evaluation_attribute[1]['attr_title'];?></b> - <?php echo $evaluation_attribute[1]['attr_comment'];?></h4>
+                                <h4><b class="text-brown"><?php echo $evaluation_attribute[1]['attr_title'];?></b> - <?php echo $evaluation_attribute[1]['attr_comment'];?></h4>
 
-                                    <hr/>
+                                <hr/>
                                     <?php if(!empty($evaluation_data[1])):?>
                                         <?php foreach($evaluation_data[1] as $evaluation_id => $evaluate) :?>
-                                        <div class="col-md-12 radio-container">
-                                            <div class="radio col-md-3">
-                                                <label class="radio-height">
-                                                    <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
-                                                    <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
-                                                    <?php echo $evaluate["rating"];?>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <?php echo $evaluate["comment"];?>
-                                            </div>
-                                        </div>
+                                <div class="col-md-12 radio-container">
+                                    <div class="radio col-md-3">
+                                        <label class="radio-height">
+                                            <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <?php echo $evaluate["rating"];?>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <?php echo $evaluate["comment"];?>
+                                    </div>
+                                </div>
                                         <?php endforeach;?>
                                     <?php endif;?>
                                 <?php endif;?>
+
+                                <div class="col-md-12 cr-container">
+                                    <div class="row">
+                                        <div class='col-md-6'>
+                                            <label>Comments:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="comment" name="evaluator-comments-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Comments Here..." class="form-control"></textarea>
+                                        </div>
+
+                                        <div class='col-md-6'>
+                                            <label>Recommendations:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="recommendation" name="evaluator-recommendations-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Recommendations Here..." class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -207,26 +222,41 @@
                         <div class="row eval-page-container">
                             <div class="col-md-12">
                                 <?php if(!empty($evaluation_attribute[2])) :?>
-                                    <h4><b class="text-brown"><?php echo $evaluation_attribute[2]['attr_title'];?></b> - <?php echo $evaluation_attribute[2]['attr_comment'];?></h4>
+                                <h4><b class="text-brown"><?php echo $evaluation_attribute[2]['attr_title'];?></b> - <?php echo $evaluation_attribute[2]['attr_comment'];?></h4>
 
-                                    <hr/>
+                                <hr/>
                                     <?php if(!empty($evaluation_data[2])):?>
                                         <?php foreach($evaluation_data[2] as $evaluation_id => $evaluate) :?>
-                                        <div class="col-md-12 radio-container">
-                                            <div class="radio col-md-3">
-                                                <label class="radio-height">
-                                                    <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
-                                                    <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
-                                                    <?php echo $evaluate["rating"];?>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <?php echo $evaluate["comment"];?>
-                                            </div>
-                                        </div>
+                                <div class="col-md-12 radio-container">
+                                    <div class="radio col-md-3">
+                                        <label class="radio-height">
+                                            <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <?php echo $evaluate["rating"];?>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <?php echo $evaluate["comment"];?>
+                                    </div>
+                                </div>
                                         <?php endforeach;?>
                                     <?php endif;?>
                                 <?php endif;?>
+
+                                <div class="col-md-12 cr-container">
+                                    <div class="row">
+                                        <div class='col-md-6'>
+                                            <label>Comments:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="comment" name="evaluator-comments-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Comments Here..." class="form-control"></textarea>
+                                        </div>
+
+                                        <div class='col-md-6'>
+                                            <label>Recommendations:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="recommendation" name="evaluator-recommendations-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Recommendations Here..." class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -235,26 +265,41 @@
                         <div class="row eval-page-container">
                             <div class="col-md-12">
                                 <?php if(!empty($evaluation_attribute[3])) :?>
-                                    <h4><b class="text-brown"><?php echo $evaluation_attribute[3]['attr_title'];?></b> - <?php echo $evaluation_attribute[3]['attr_comment'];?></h4>
+                                <h4><b class="text-brown"><?php echo $evaluation_attribute[3]['attr_title'];?></b> - <?php echo $evaluation_attribute[3]['attr_comment'];?></h4>
 
-                                    <hr/>
+                                <hr/>
                                     <?php if(!empty($evaluation_data[3])):?>
                                         <?php foreach($evaluation_data[3] as $evaluation_id => $evaluate) :?>
-                                        <div class="col-md-12 radio-container">
-                                            <div class="radio col-md-3">
-                                                <label class="radio-height">
-                                                    <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
-                                                    <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
-                                                    <?php echo $evaluate["rating"];?>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <?php echo $evaluate["comment"];?>
-                                            </div>
-                                        </div>
+                                <div class="col-md-12 radio-container">
+                                    <div class="radio col-md-3">
+                                        <label class="radio-height">
+                                            <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <?php echo $evaluate["rating"];?>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <?php echo $evaluate["comment"];?>
+                                    </div>
+                                </div>
                                         <?php endforeach;?>
                                     <?php endif;?>
                                 <?php endif;?>
+
+                                <div class="col-md-12 cr-container">
+                                    <div class="row">
+                                        <div class='col-md-6'>
+                                            <label>Comments:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="comment" name="evaluator-comments-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Comments Here..." class="form-control"></textarea>
+                                        </div>
+
+                                        <div class='col-md-6'>
+                                            <label>Recommendations:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="recommendation" name="evaluator-recommendations-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Recommendations Here..." class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -262,26 +307,41 @@
                         <div class="row eval-page-container">
                             <div class="col-md-12">
                                 <?php if(!empty($evaluation_attribute[4])) :?>
-                                    <h4><b class="text-brown"><?php echo $evaluation_attribute[4]['attr_title'];?></b> - <?php echo $evaluation_attribute[4]['attr_comment'];?></h4>
+                                <h4><b class="text-brown"><?php echo $evaluation_attribute[4]['attr_title'];?></b> - <?php echo $evaluation_attribute[4]['attr_comment'];?></h4>
 
-                                    <hr/>
+                                <hr/>
                                     <?php if(!empty($evaluation_data[4])):?>
                                         <?php foreach($evaluation_data[4] as $evaluation_id => $evaluate) :?>
-                                        <div class="col-md-12 radio-container">
-                                            <div class="radio col-md-3">
-                                                <label class="radio-height">
-                                                    <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
-                                                    <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
-                                                    <?php echo $evaluate["rating"];?>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <?php echo $evaluate["comment"];?>
-                                            </div>
-                                        </div>
+                                <div class="col-md-12 radio-container">
+                                    <div class="radio col-md-3">
+                                        <label class="radio-height">
+                                            <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <?php echo $evaluate["rating"];?>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <?php echo $evaluate["comment"];?>
+                                    </div>
+                                </div>
                                         <?php endforeach;?>
                                     <?php endif;?>
                                 <?php endif;?>
+
+                                <div class="col-md-12 cr-container">
+                                    <div class="row">
+                                        <div class='col-md-6'>
+                                            <label>Comments:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="comment" name="evaluator-comments-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Comments Here..." class="form-control"></textarea>
+                                        </div>
+
+                                        <div class='col-md-6'>
+                                            <label>Recommendations:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="recommendation" name="evaluator-recommendations-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Recommendations Here..." class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -290,26 +350,41 @@
                         <div class="row eval-page-container">
                             <div class="col-md-12">
                                 <?php if(!empty($evaluation_attribute[5])) :?>
-                                    <h4><b class="text-brown"><?php echo $evaluation_attribute[5]['attr_title'];?></b> - <?php echo $evaluation_attribute[5]['attr_comment'];?></h4>
+                                <h4><b class="text-brown"><?php echo $evaluation_attribute[5]['attr_title'];?></b> - <?php echo $evaluation_attribute[5]['attr_comment'];?></h4>
 
-                                    <hr/>
+                                <hr/>
                                     <?php if(!empty($evaluation_data[5])):?>
                                         <?php foreach($evaluation_data[5] as $evaluation_id => $evaluate) :?>
-                                        <div class="col-md-12 radio-container">
-                                            <div class="radio col-md-3">
-                                                <label class="radio-height">
-                                                    <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
-                                                    <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
-                                                    <?php echo $evaluate["rating"];?>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <?php echo $evaluate["comment"];?>
-                                            </div>
-                                        </div>
+                                <div class="col-md-12 radio-container">
+                                    <div class="radio col-md-3">
+                                        <label class="radio-height">
+                                            <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <?php echo $evaluate["rating"];?>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <?php echo $evaluate["comment"];?>
+                                    </div>
+                                </div>
                                         <?php endforeach;?>
                                     <?php endif;?>
                                 <?php endif;?>
+
+                                <div class="col-md-12 cr-container">
+                                    <div class="row">
+                                        <div class='col-md-6'>
+                                            <label>Comments:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="comment" name="evaluator-comments-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Comments Here..." class="form-control"></textarea>
+                                        </div>
+
+                                        <div class='col-md-6'>
+                                            <label>Recommendations:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="recommendation" name="evaluator-recommendations-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Recommendations Here..." class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -318,26 +393,41 @@
                         <div class="row eval-page-container">
                             <div class="col-md-12">
                                 <?php if(!empty($evaluation_attribute[6])) :?>
-                                    <h4><b class="text-brown"><?php echo $evaluation_attribute[6]['attr_title'];?></b> - <?php echo $evaluation_attribute[6]['attr_comment'];?></h4>
+                                <h4><b class="text-brown"><?php echo $evaluation_attribute[6]['attr_title'];?></b> - <?php echo $evaluation_attribute[6]['attr_comment'];?></h4>
 
-                                    <hr/>
+                                <hr/>
                                     <?php if(!empty($evaluation_data[6])):?>
                                         <?php foreach($evaluation_data[6] as $evaluation_id => $evaluate) :?>
-                                        <div class="col-md-12 radio-container">
-                                            <div class="radio col-md-3">
-                                                <label class="radio-height">
-                                                    <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
-                                                    <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
-                                                    <?php echo $evaluate["rating"];?>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <?php echo $evaluate["comment"];?>
-                                            </div>
-                                        </div>
+                                <div class="col-md-12 radio-container">
+                                    <div class="radio col-md-3">
+                                        <label class="radio-height">
+                                            <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <?php echo $evaluate["rating"];?>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <?php echo $evaluate["comment"];?>
+                                    </div>
+                                </div>
                                         <?php endforeach;?>
                                     <?php endif;?>
                                 <?php endif;?>
+
+                                <div class="col-md-12 cr-container">
+                                    <div class="row">
+                                        <div class='col-md-6'>
+                                            <label>Comments:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="comment" name="evaluator-comments-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Comments Here..." class="form-control"></textarea>
+                                        </div>
+
+                                        <div class='col-md-6'>
+                                            <label>Recommendations:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="recommendation" name="evaluator-recommendations-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Recommendations Here..." class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -346,78 +436,123 @@
                         <div class="row eval-page-container">
                             <div class="col-md-12">
                                 <?php if(!empty($evaluation_attribute[7])) :?>
-                                    <h4><b class="text-brown"><?php echo $evaluation_attribute[7]['attr_title'];?></b> - <?php echo $evaluation_attribute[7]['attr_comment'];?></h4>
+                                <h4><b class="text-brown"><?php echo $evaluation_attribute[7]['attr_title'];?></b> - <?php echo $evaluation_attribute[7]['attr_comment'];?></h4>
 
-                                    <hr/>
+                                <hr/>
                                     <?php if(!empty($evaluation_data[7])):?>
                                         <?php foreach($evaluation_data[7] as $evaluation_id => $evaluate) :?>
-                                        <div class="col-md-12 radio-container">
-                                            <div class="radio col-md-3">
-                                                <label class="radio-height">
-                                                    <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
-                                                    <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
-                                                    <?php echo $evaluate["rating"];?>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <?php echo $evaluate["comment"];?>
-                                            </div>
-                                        </div>
+                                <div class="col-md-12 radio-container">
+                                    <div class="radio col-md-3">
+                                        <label class="radio-height">
+                                            <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <?php echo $evaluate["rating"];?>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <?php echo $evaluate["comment"];?>
+                                    </div>
+                                </div>
                                         <?php endforeach;?>
                                     <?php endif;?>
                                 <?php endif;?>
+
+                                <div class="col-md-12 cr-container">
+                                    <div class="row">
+                                        <div class='col-md-6'>
+                                            <label>Comments:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="comment" name="evaluator-comments-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Comments Here..." class="form-control"></textarea>
+                                        </div>
+
+                                        <div class='col-md-6'>
+                                            <label>Recommendations:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="recommendation" name="evaluator-recommendations-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Recommendations Here..." class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
                         <div class="row eval-page-container">
                             <div class="col-md-12">
                                 <?php if(!empty($evaluation_attribute[8])) :?>
-                                    <h4><b class="text-brown"><?php echo $evaluation_attribute[8]['attr_title'];?></b> - <?php echo $evaluation_attribute[8]['attr_comment'];?></h4>
+                                <h4><b class="text-brown"><?php echo $evaluation_attribute[8]['attr_title'];?></b> - <?php echo $evaluation_attribute[8]['attr_comment'];?></h4>
 
-                                    <hr/>
+                                <hr/>
                                     <?php if(!empty($evaluation_data[8])):?>
                                         <?php foreach($evaluation_data[8] as $evaluation_id => $evaluate) :?>
-                                        <div class="col-md-12 radio-container">
-                                            <div class="radio col-md-3">
-                                                <label class="radio-height">
-                                                    <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
-                                                    <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
-                                                    <?php echo $evaluate["rating"];?>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <?php echo $evaluate["comment"];?>
-                                            </div>
-                                        </div>
+                                <div class="col-md-12 radio-container">
+                                    <div class="radio col-md-3">
+                                        <label class="radio-height">
+                                            <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <?php echo $evaluate["rating"];?>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <?php echo $evaluate["comment"];?>
+                                    </div>
+                                </div>
                                         <?php endforeach;?>
                                     <?php endif;?>
                                 <?php endif;?>
+
+                                <div class="col-md-12 cr-container">
+                                    <div class="row">
+                                        <div class='col-md-6'>
+                                            <label>Comments:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="comment" name="evaluator-comments-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Comments Here..." class="form-control"></textarea>
+                                        </div>
+
+                                        <div class='col-md-6'>
+                                            <label>Recommendations:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="recommendation" name="evaluator-recommendations-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Recommendations Here..." class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
                         <div class="row eval-page-container">
                             <div class="col-md-12">
                                 <?php if(!empty($evaluation_attribute[9])) :?>
-                                    <h4><b class="text-brown"><?php echo $evaluation_attribute[9]['attr_title'];?></b> - <?php echo $evaluation_attribute[9]['attr_comment'];?></h4>
+                                <h4><b class="text-brown"><?php echo $evaluation_attribute[9]['attr_title'];?></b> - <?php echo $evaluation_attribute[9]['attr_comment'];?></h4>
 
-                                    <hr/>
+                                <hr/>
                                     <?php if(!empty($evaluation_data[9])):?>
                                         <?php foreach($evaluation_data[9] as $evaluation_id => $evaluate) :?>
-                                        <div class="col-md-12 radio-container">
-                                            <div class="radio col-md-3">
-                                                <label class="radio-height">
-                                                    <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
-                                                    <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
-                                                    <?php echo $evaluate["rating"];?>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <?php echo $evaluate["comment"];?>
-                                            </div>
-                                        </div>
+                                <div class="col-md-12 radio-container">
+                                    <div class="radio col-md-3">
+                                        <label class="radio-height">
+                                            <input type="radio" name="radio-<?php echo $evaluate['attribute_id'];?>" value="<?php echo $evaluate['evaluation_id'];?>">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <?php echo $evaluate["rating"];?>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <?php echo $evaluate["comment"];?>
+                                    </div>
+                                </div>
                                         <?php endforeach;?>
                                     <?php endif;?>
                                 <?php endif;?>
+
+                                <div class="col-md-12 cr-container">
+                                    <div class="row">
+                                        <div class='col-md-6'>
+                                            <label>Comments:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="comment" name="evaluator-comments-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Comments Here..." class="form-control"></textarea>
+                                        </div>
+
+                                        <div class='col-md-6'>
+                                            <label>Recommendations:</label>
+                                            <textarea data-attr-id="<?php echo $evaluate['attribute_id'];?>" data-type="recommendation" name="evaluator-recommendations-<?php echo $evaluate['attribute_id'];?>" placeholder="Add Recommendations Here..." class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 

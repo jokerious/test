@@ -337,14 +337,17 @@ class evaluation_model extends CI_Model {
         return $result;
     }
 
-    public function prepareEvaluationResult($evaluation_result, $evaluation_list_id) {
+    public function prepareEvaluationResult($evaluation_result, $evaluation_list_id, $comments, $recommendations) {
         $result = array();
 
         if(!empty($evaluation_result) && !empty($evaluation_list_id)) {
             foreach($evaluation_result as $key => $value) {
-                $result[] = array("evaluation_list_id" => $evaluation_list_id,
-                                  "evaluation_id"      => $value["evaluation_id"]
-                                 );
+                $result[] = array(
+                                "evaluation_list_id"        => $evaluation_list_id,
+                                "evaluation_id"             => $value["evaluation_id"],
+                                "evaluator_comments"        => (isset($comments[$value["attribute_id"]])) ? $comments[$value["attribute_id"]] : null,
+                                "evaluator_recommendations" => (isset($recommendations[$value["attribute_id"]])) ? $recommendations[$value["attribute_id"]] : null
+                            );
             }
         }
 
@@ -431,6 +434,20 @@ class evaluation_model extends CI_Model {
 
             if($filter_status == "Expired") {
                 $result .= " AND status = 0 AND expiry_date < '" . date("Y-m-d") . "'";
+            }
+        }
+
+        return $result;
+    }
+
+    public function prepareCommentRecommendations($comments) {
+        $result = array();
+
+        if(!empty($comments)) {
+            foreach($comments as $key => $value) {
+                foreach($value as $attr_id => $text) {
+                    $result[$attr_id] = $text;
+                }
             }
         }
 

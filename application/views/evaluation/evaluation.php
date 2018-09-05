@@ -320,6 +320,8 @@
                     <thead>
                         <tr>
                             <th class="text-center" width="300px">Attribute</th>
+                            <th class="text-center">Comments</th>
+                            <th class="text-center">Recommendations</th>
                             <th class="text-center">Selected Rating</th>
                             <th class="text-center">Rating</th>
                         </tr>
@@ -329,19 +331,21 @@
                             <?php foreach($evaluation_attribute as $key => $attr_value) :?>
                         <tr>
                             <td><?php echo $attr_value["attr_title"];?></td>
+                            <td class="word-wrap vertical-middle comments-<?php echo $attr_value['attr_id'];?>"></td>
+                            <td class="word-wrap vertical-middle recommendations-<?php echo $attr_value['attr_id'];?>"></td>
                             <td class="vertical-middle rating-<?php echo $attr_value['attr_id'];?>"></td>
                             <td class="vertical-middle text-right rating-num-<?php echo $attr_value['attr_id'];?>"></td>
                         </tr>
                             <?php endforeach;?>
 
                         <tr>
-                            <td class="text-center" colspan="2"><b>Total</b></td>
+                            <td class="text-center" colspan="4"><b>Total</b></td>
                             <td class="text-right attr-total"></td>
                         </tr>
 
                         <?php else :?>
                         <tr>
-                            <td colspan="3">No Data Found.</td>
+                            <td colspan="5">No Data Found.</td>
                         </tr>
                         <?php endif;?>
                     </tbody>

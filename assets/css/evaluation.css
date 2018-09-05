@@ -169,3 +169,18 @@
 .icon-evaluation {
     padding-left: 0px !important;
 }
+
+.cr-container {
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+#modal-view-evaluation .modal-dialog {
+    width: 80%;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 250px;
+}
