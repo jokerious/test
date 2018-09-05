@@ -1,6 +1,6 @@
 <?php
 
-class employee_model extends CI_Model {
+class Employee_model extends CI_Model {
     public function getPositionList() {
         $result = array();
 
