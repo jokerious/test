@@ -16,4 +16,36 @@ class Dashboard extends MY_Controller {
 
         $this->loadView("home", $data);
     }
+
+    public function updateEmployeePassword() {
+        $result            = array();
+        $result["error"]   = TRUE;
+        $result["message"] = "Error Occured while updating. Please contact system administrator.";
+
+        $current_password  = $_POST["current_password"];
+        $new_password      = $_POST["new_password"];
+        $confirm_password  = $_POST["confirm_password"];
+        $user_id           = $_SESSION["user_id"];
+
+        if(!empty($current_password) && !empty($new_password) && !empty($confirm_password) && !empty($user_id)) {
+            if($new_password == $confirm_password) {
+                $check_current_password = $this->employee_model->checkUserCurrentPassword($user_id, $current_password);
+
+                if($check_current_password) {
+                    $update_password = $this->employee_model->updatePassword($user_id, $new_password);
+
+                    if($update_password) {
+                        $result["error"]   = FALSE;
+                        $result["message"] = "You Successfully updated your password.";
+                    }
+                } else {
+                    $result["message"] = "The Current Password Entered is Incorrect.";
+                }
+            } else {
+                $result["message"] = "New password and Confirm password mismatched.";
+            }
+        }
+
+        echo json_encode($result);
+    }
 }

@@ -86,6 +86,16 @@ class evaluation_model extends CI_Model {
 
         if(!empty($exe)) {
             foreach($exe as $key => $val) {
+                $val["status_words"] = "Ongoing";
+
+                if($val["status"] == 0 && (isset($val["expiry_date"]) && date("Y-m-d") > $val["expiry_date"])) {
+                    $val["status_words"] = "Expired";
+                }
+
+                if($val["status"] == 1) {
+                    $val["status_words"] = "Done";
+                }
+
                 $result["data"][$val["department"]][$val["evaluated"]][] = $val;
 
                 $result["emp_ids"][] = $val["evaluated"];

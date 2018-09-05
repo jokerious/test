@@ -111,7 +111,7 @@
                                                         <tr class="tbl-eval-row" data-eval-list="<?php echo $eval['id'];?>">
                                                             <td><?php echo $evaluation_counter++;?></td>
                                                             <td class="ucfirst"><?php echo $employee_names[$eval['evaluator']];?></td>
-                                                            <td><?php echo ($eval["status"] == 0) ? "Ongoing" : "Done";?></td>
+                                                            <td><?php echo $eval["status_words"];?></td>
                                                             <td class="text-center"><?php echo (!empty($eval["score"])) ? ($eval["score"] . "%") : '';?></td>
                                                             <td class="text-center">
                                                                 <a class="btn btn-default <?php echo (!empty($eval["score"])) ? 'btn-finish-eval' : '';?>" <?php echo (!empty($eval["score"])) ? '' : 'disabled';?> data-csrf-token="<?php echo $this->security->get_csrf_hash();?>">View Result</a>

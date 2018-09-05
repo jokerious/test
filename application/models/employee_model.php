@@ -312,4 +312,45 @@ class employee_model extends CI_Model {
 
         return $result;
     }
+
+    public function checkUserCurrentPassword($user_id, $current_password) {
+        $result = false;
+
+        if(!empty($user_id) && !empty($current_password)) {
+            $sql = "SELECT * FROM users
+                    WHERE user_id = {$user_id}
+                    AND password = md5('".$current_password."')
+                    LIMIT 1
+                   ";
+
+            $exe = $this->db->query($sql)->row_array();
+
+            if(count($exe) > 0) {
+                $result = true;
+            }
+        }
+
+        return $result;
+    }
+
+    public function updatePassword($user_id, $new_password) {
+        $result = false;
+
+        if(!empty($user_id) && !empty($new_password)) {
+            $sql = "UPDATE users
+                    SET password = md5('".$new_password."')
+                    WHERE user_id = {$user_id}
+                   ";
+
+            $this->db->query($sql);
+
+            $affected_rows = $this->db->affected_rows();
+
+            if(count($affected_rows) > 0) {
+                $result = true;
+            }
+        }
+
+        return $result;
+    }
 }

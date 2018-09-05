@@ -1,4 +1,6 @@
 <div id="content">
+    <input type="hidden" class="base-url" value="<?php echo base_url();?>"/>
+    
     <div class="outer">
         <div class="bg-light lter">
 
@@ -39,7 +41,7 @@
                                             <div class="profile-info-name"> Middle Name </div>
 
                                             <div class="profile-info-value">
-                                                <span><?php echo $employee_details["middle_name"];?></span>
+                                                <span><?php echo ucfirst($employee_details["middle_name"]);?></span>
                                             </div>
                                         </div>
 
@@ -97,60 +99,66 @@
                                             </div>
                                         </div>
 
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name"> SSS Number </div>
 
-                                    <div class="profile-info-row">
-                                        <div class="profile-info-name"> SSS Number </div>
-
-                                        <div class="profile-info-value">
-                                            <i class="light-orange bigger-110">#</i>
-                                            <span><?php echo $employee_details["sss_number"];?></span>
+                                            <div class="profile-info-value">
+                                                <i class="light-orange bigger-110">#</i>
+                                                <span><?php echo $employee_details["sss_number"];?></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="profile-info-row">
-                                        <div class="profile-info-name"> HDMF Number </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name"> HDMF Number </div>
 
-                                        <div class="profile-info-value">
-                                            <i class="light-orange bigger-110">#</i>
-                                            <span><?php echo $employee_details["hdmf_number"];?></span>
+                                            <div class="profile-info-value">
+                                                <i class="light-orange bigger-110">#</i>
+                                                <span><?php echo $employee_details["hdmf_number"];?></span>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="profile-info-row">
-                                        <div class="profile-info-name"> PhilHealth Number </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name"> PhilHealth Number </div>
 
-                                        <div class="profile-info-value">
-                                            <i class="light-orange bigger-110">#</i>
-                                            <span><?php echo $employee_details["philhealth_number"];?></span>
+                                            <div class="profile-info-value">
+                                                <i class="light-orange bigger-110">#</i>
+                                                <span><?php echo $employee_details["philhealth_number"];?></span>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="profile-info-row">
-                                        <div class="profile-info-name"> TIN </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name"> TIN </div>
 
-                                        <div class="profile-info-value">
-                                            <i class="light-orange bigger-110">#</i>
-                                            <span></span>
+                                            <div class="profile-info-value">
+                                                <i class="light-orange bigger-110">#</i>
+                                                <span></span>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="profile-info-row">
-                                        <div class="profile-info-name"> Bank Account </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name"> Bank Account </div>
 
-                                        <div class="profile-info-value">
-                                            <i class="fa fa-id-card light-orange bigger-110"></i>
-                                            <span><?php echo $employee_details["bank_account_number"];?></span>
+                                            <div class="profile-info-value">
+                                                <i class="fa fa-id-card light-orange bigger-110"></i>
+                                                <span><?php echo $employee_details["bank_account_number"];?></span>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="profile-info-row">
-                                        <div class="profile-info-name"> Username </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name"> Username </div>
 
-                                        <div class="profile-info-value">
-                                            <i class="fa fa-user light-orange bigger-110"></i>
-                                            <span><?php echo $employee_details["username"];?></span>
+                                            <div class="profile-info-value">
+                                                <i class="fa fa-user light-orange bigger-110"></i>
+                                                <span><?php echo $employee_details["username"];?></span>
+                                            </div>
                                         </div>
-                                    </div>
 
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-name"> Password </div>
+
+                                            <div class="profile-info-value margin-top-20">
+                                                <button class="btn btn-default btn-xs btn-update-password">Update Password</button>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="hr hr-8 dotted"></div>
@@ -251,3 +259,54 @@
     <!-- /.outer -->
 </div>
 <!-- /#content -->
+
+<div class="modal fade in" id="modal-update-password">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Update Password</h4>
+            </div>
+            <div class="modal-body">
+                <form id="frm-update-password" class="form-horizontal">
+                    <input type="hidden" name="tm_hr_token" value="<?php echo $this->security->get_csrf_hash();?>">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-lg-4">Current Password</label>
+                                <div class="col-lg-8">
+                                    <input id="current-password" type="password" name="current-password" placeholder="Please Enter Your Current Password" class="form-control">
+                                    <span class="glyphicon glyphicon-eye-open pull-right view-password"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-lg-4">New Password</label>
+                                <div class="col-lg-8">
+                                    <input id="new-password" type="password" name="new-password" placeholder="New Password" class="form-control">
+                                    <span class="glyphicon glyphicon-eye-open pull-right view-password"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-lg-4">Confirm New Password</label>
+                                <div class="col-lg-8">
+                                    <input id="confirm-new-password" type="password" name="confirm-new-password" placeholder="Confirm New Password" class="form-control">
+                                    <span class="glyphicon glyphicon-eye-open pull-right view-password"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-tm-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btn-tm-default btn-save-password">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

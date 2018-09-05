@@ -1465,3 +1465,25 @@
 .btn-th-width {
     width: 150px;
 }
+
+.margin-top-20 {
+    margin-top: 5px;
+}
+
+.btn-update-password {
+    width: 120px;
+}
+
+.view-password {
+    display: block;
+    margin-top: -25px;
+    margin-right: 7px;
+}
+
+.view-password:hover {
+    cursor: pointer;
+}
+
+.btn-tm-default {
+    width: 150px;
+}

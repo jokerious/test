@@ -39,6 +39,11 @@ class MY_controller extends CI_Controller {
             $result["css"] = array('employee.css');
         }
 
+        if($page == 'dashboard') {
+            $result["js"]  = array('dashboard.js');
+            $result["css"] = array('dashboard.css');
+        }
+
         return $result;
     }
 
