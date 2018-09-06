@@ -308,7 +308,10 @@ $(document).ready(function() {
         var url                = $(".base-url").val();
         var token              = $(this).data("csrf-token");
         var total              = 0;
+        //var evaluation_detail  = $(this).closest(".eval-container").find(".eval-evaluated").html() + ' by ' + $(this).closest(".eval-container").find(".eval-evaluator").html();
+        var evaluation_detail  = $(this).closest(".eval-container").find(".eval-evaluated").html();
 
+        $("#evaluation-detail").val(evaluation_detail)
         $.ajax({
             url  : url + 'evaluation/getEmployeeEvaluationResult',
             type : 'POST',
@@ -349,4 +352,27 @@ $("body").on("change", ".sel-filter-user", function() {
 
 $("body").on("change", ".sel-filter-status", function() {
     $(this).closest("form").submit();
+});
+
+$("body").on("click", ".btn-print-evaluation", function() {
+    var divToPrint = document.getElementById("tbl-eval-result");
+
+    var htmlToPrint = '' +
+        '<h4 style="text-transform: capitalize;">Employee Evaluation - ' + $("#evaluation-detail").val() + '</h4>' +
+        '<style type="text/css">' +
+        'table th, table td {' +
+        'border:1px groove #ddd;' +
+        'padding;0.5em;' +
+        '}' +
+        'table {' +
+        'border-style:groove' +
+        '}' +
+        '</style>';
+
+    var newWin   = window.open("");
+
+    htmlToPrint += divToPrint.outerHTML;
+    newWin.document.write(htmlToPrint);
+    newWin.print();
+    newWin.close();
 });

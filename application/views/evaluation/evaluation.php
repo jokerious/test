@@ -83,9 +83,9 @@
                                             <?php foreach($evaluation as $employee_id => $evaluate) :?>
                                                 <?php $evaluation_counter = 1;?>
                                     <div class="col-lg-12 ui-sortable">
-                                        <div class="box ui-sortable-handle">
+                                        <div class="box ui-sortable-handle eval-container">
                                             <header>
-                                                <h5 class="ucfirst text-info"><?php echo $employee_names[$employee_id];?></h5>
+                                                <h5 class="ucfirst text-info eval-evaluated"><?php echo $employee_names[$employee_id];?></h5>
                                                 <div class="toolbar">
                                                     <div class="btn-group">
                                                         <a href="#defaultTable-<?php echo $department_id . '-' . $employee_id;?>" data-toggle="collapse" class="btn btn-sm btn-default minimize-box" aria-expanded="true">
@@ -110,7 +110,7 @@
                                                         <?php foreach($evaluate as $eval_key => $eval) :?>
                                                         <tr class="tbl-eval-row" data-eval-list="<?php echo $eval['id'];?>">
                                                             <td><?php echo $evaluation_counter++;?></td>
-                                                            <td class="ucfirst"><?php echo $employee_names[$eval['evaluator']];?></td>
+                                                            <td class="ucfirst eval-evaluator"><?php echo $employee_names[$eval['evaluator']];?></td>
                                                             <td><?php echo $eval["status_words"];?></td>
                                                             <td class="text-center"><?php echo (!empty($eval["score"])) ? ($eval["score"] . "%") : '';?></td>
                                                             <td class="text-center">
@@ -314,9 +314,10 @@
                 <h4 class="modal-title">Evaluation Result</h4>
             </div>
             <div class="modal-body">
+                <input type="hidden" id="evaluation-detail" value=""/>
                 <?php echo form_open('', array('class' => 'form-horizontal', 'id' => 'form-view-evaluation'));?>
 
-                <table class="table table-bordered responsive-table">
+                <table id="tbl-eval-result" class="table table-bordered responsive-table">
                     <thead>
                         <tr>
                             <th class="text-center" width="300px">Attribute</th>
@@ -354,6 +355,7 @@
                 <?php echo form_close();?>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-110 pull-left btn-print-evaluation"><i class="glyphicon glyphicon-print"></i> Print Result</button>
                 <button type="button" class="btn btn-default btn-110" data-dismiss="modal">Close</button>
             </div>
         </div>
