@@ -109,6 +109,7 @@ $(document).ready(function() {
         var expiry_date     = $("#evaluation-expiry-date").val();
         var evaluation_type = $("#evalution-type").val();
         var url             = $(".base-url").val() + "evaluation/createEvaluation";
+        var type            = $("#type").val();
 
         $.ajax({
             url  : url,
@@ -119,7 +120,8 @@ $(document).ready(function() {
                 'dep_emp'        : dep_emp,
                 'department'     : department,
                 'expiry_date'    : expiry_date,
-                'evaluation_type': evaluation_type
+                'evaluation_type': evaluation_type,
+                'type'           : type
             },
             success: function(result) {
                 data = JSON.parse(result);
@@ -304,14 +306,16 @@ $(document).ready(function() {
     });
 
     $("body").on("click", ".btn-finish-eval", function() {
-        var evaluation_list_id = $(this).closest(".tbl-eval-row").data("eval-list");
-        var url                = $(".base-url").val();
-        var token              = $(this).data("csrf-token");
-        var total              = 0;
-        //var evaluation_detail  = $(this).closest(".eval-container").find(".eval-evaluated").html() + ' by ' + $(this).closest(".eval-container").find(".eval-evaluator").html();
-        var evaluation_detail  = $(this).closest(".eval-container").find(".eval-evaluated").html();
+        var evaluation_list_id     = $(this).closest(".tbl-eval-row").data("eval-list");
+        var url                    = $(".base-url").val();
+        var token                  = $(this).data("csrf-token");
+        var total                  = 0;
+        //var evaluation_detail    = $(this).closest(".eval-container").find(".eval-evaluated").html() + ' by ' + $(this).closest(".eval-container").find(".eval-evaluator").html();
+        var evaluation_detail      = $(this).closest(".eval-container").find(".eval-evaluated").html();
+        var evaluation_result_type = $(this).closest("tr").find(".eval-type").html();
 
-        $("#evaluation-detail").val(evaluation_detail)
+        $("#evaluation-detail").val(evaluation_detail);
+        $("#evaluation-result-type").val(evaluation_result_type);
         $.ajax({
             url  : url + 'evaluation/getEmployeeEvaluationResult',
             type : 'POST',
@@ -358,7 +362,8 @@ $("body").on("click", ".btn-print-evaluation", function() {
     var divToPrint = document.getElementById("tbl-eval-result");
 
     var htmlToPrint = '' +
-        '<h4 style="text-transform: capitalize;">Employee Evaluation - ' + $("#evaluation-detail").val() + '</h4>' +
+        '<label style="text-transform: capitalize;font-size:20px;">Employee Evaluation : <strong>' + $("#evaluation-detail").val() + '</strong></label><br/>' +
+        '<label style="text-transform: capitalize;font-size:20px;">Type : <strong>' + $("#evaluation-result-type").val() + '</strong></label><br/><br/><br/>' +
         '<style type="text/css">' +
         'table th, table td {' +
         'border:1px groove #ddd;' +

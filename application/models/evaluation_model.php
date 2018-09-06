@@ -63,6 +63,7 @@ class Evaluation_model extends CI_Model {
                     status,
                     expiry_date,
                     evaluation_type,
+                    type,
                     (SELECT CONCAT(last_name, ', ', first_name)
                      FROM employee
                      WHERE employee_id = evaluation_list.evaluated

@@ -38,18 +38,19 @@ class Evaluation extends MY_Controller {
         $result            = array();
         $result["error"]   = false;
         $result["message"] = "";
-        
+
         $dep_head          = (!empty($_POST["dep_head"])) ? $_POST["dep_head"] : array();
         $dep_emp           = (!empty($_POST["dep_emp"])) ? $_POST["dep_emp"] : array();
         $department        = (!empty($_POST["department"])) ? $_POST["department"] : 0;
         $expiry_date       = (!empty($_POST["expiry_date"])) ? (date("Y-m-d", strtotime($_POST["expiry_date"]))) : null;
         $evaluation_type   = (!empty($_POST["evaluation_type"])) ? $_POST["evaluation_type"] : array();
+        $type              = (!empty($_POST["type"])) ? $_POST["type"] : null;
 
         if(!empty($dep_head) && !empty($dep_emp) && !empty($department) && !empty($evaluation_type)) {
             if($evaluation_type == "Department Head To Employee") {
-                $evaluation_data = $this->prepareEmployeeEvaluation($dep_head, $dep_emp, $department, $expiry_date, $evaluation_type);
+                $evaluation_data = $this->prepareEmployeeEvaluation($dep_head, $dep_emp, $department, $expiry_date, $evaluation_type, $type);
             } else {
-                $evaluation_data = $this->prepareDepHeadEvaluation($dep_head, $dep_emp, $department, $expiry_date, $evaluation_type);
+                $evaluation_data = $this->prepareDepHeadEvaluation($dep_head, $dep_emp, $department, $expiry_date, $evaluation_type, $type);
             }
 
             $evaluation_id = $this->evaluation_model->insertEvaluationData($evaluation_data);
@@ -69,7 +70,7 @@ class Evaluation extends MY_Controller {
         echo json_encode($result);
     }
 
-    private function prepareEmployeeEvaluation($dep_head, $dep_emp, $department, $expiry_date, $evaluation_type) {
+    private function prepareEmployeeEvaluation($dep_head, $dep_emp, $department, $expiry_date, $evaluation_type, $type) {
         $result  = array();
         $counter = 0;
 
@@ -80,6 +81,7 @@ class Evaluation extends MY_Controller {
                 $result[$counter]["evaluated"]       = $emp_id;
                 $result[$counter]["expiry_date"]     = $expiry_date;
                 $result[$counter]["evaluation_type"] = $evaluation_type;
+                $result[$counter]["type"]            = strtolower($type);
 
                 $counter++;
             }
@@ -88,7 +90,7 @@ class Evaluation extends MY_Controller {
         return $result;
     }
 
-    private function prepareDepHeadEvaluation($dep_head, $dep_emp, $department, $expiry_date, $evaluation_type) {
+    private function prepareDepHeadEvaluation($dep_head, $dep_emp, $department, $expiry_date, $evaluation_type, $type) {
         $result  = array();
         $counter = 0;
 
@@ -99,6 +101,7 @@ class Evaluation extends MY_Controller {
                 $result[$counter]["evaluated"]       = $head_id;
                 $result[$counter]["expiry_date"]     = $expiry_date;
                 $result[$counter]["evaluation_type"] = $evaluation_type;
+                $result[$counter]["type"]            = strtolower($type);
 
                 $counter++;
             }

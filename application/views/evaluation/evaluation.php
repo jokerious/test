@@ -100,6 +100,7 @@
                                                         <tr>
                                                             <th>#</th>
                                                             <th>Evaluator's Name</th>
+                                                            <th>Type</th>
                                                             <th>Status</th>
                                                             <th>Score</th>
                                                             <th>Evaluation Detail</th>
@@ -111,6 +112,7 @@
                                                         <tr class="tbl-eval-row" data-eval-list="<?php echo $eval['id'];?>">
                                                             <td><?php echo $evaluation_counter++;?></td>
                                                             <td class="ucfirst eval-evaluator"><?php echo $employee_names[$eval['evaluator']];?></td>
+                                                            <td class="eval-type"><?php echo ucfirst($eval["type"]);?></td>
                                                             <td><?php echo $eval["status_words"];?></td>
                                                             <td class="text-center"><?php echo (!empty($eval["score"])) ? ($eval["score"] . "%") : '';?></td>
                                                             <td class="text-center">
@@ -285,6 +287,14 @@
                                                     </select>
                                                 </div>
                                             </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-lg-4">Type</label>
+                                                <div class="col-lg-8">
+                                                    <input id="type" type="text" name="type" placeholder="e.g Probationary, Regularization" class="form-control" value="">
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -315,6 +325,7 @@
             </div>
             <div class="modal-body">
                 <input type="hidden" id="evaluation-detail" value=""/>
+                <input type="hidden" id="evaluation-result-type" value=""/>
                 <?php echo form_open('', array('class' => 'form-horizontal', 'id' => 'form-view-evaluation'));?>
 
                 <table id="tbl-eval-result" class="table table-bordered responsive-table">
@@ -331,7 +342,7 @@
                         <?php if(!empty($evaluation_attribute)) :?>
                             <?php foreach($evaluation_attribute as $key => $attr_value) :?>
                         <tr>
-                            <td><?php echo $attr_value["attr_title"];?></td>
+                            <td class="word-wrap vertical-middle"><?php echo $attr_value["attr_title"];?></td>
                             <td class="word-wrap vertical-middle comments-<?php echo $attr_value['attr_id'];?>"></td>
                             <td class="word-wrap vertical-middle recommendations-<?php echo $attr_value['attr_id'];?>"></td>
                             <td class="vertical-middle rating-<?php echo $attr_value['attr_id'];?>"></td>
