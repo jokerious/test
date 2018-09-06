@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    $('.employee-table').DataTable();
+
     $('[data-toggle="tm-tooltip"]').tooltip();
 
     vm = initVue();
